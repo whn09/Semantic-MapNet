@@ -57,8 +57,8 @@ cfg_rednet = {
 model = RedNet(cfg_rednet)
 model = model.to(device)
 
-print('Loading pre-trained weights: ', cfg_rednet['model_path'])
-state = torch.load(cfg_rednet['model_path'])
+print('Loading pre-trained weights: ', cfg_rednet['load_model'])
+state = torch.load(cfg_rednet['load_model'])
 model_state = state['model_state']
 model_state = convert_weights_cuda_cpu(model_state, 'cpu')
 model.load_state_dict(model_state)

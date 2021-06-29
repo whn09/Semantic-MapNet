@@ -66,7 +66,7 @@ cfg_rednet = {
     'SUNRGBD_pretrained_weights': '',
     'n_classes': 13,
     'upsample_prediction': True,
-    'load_model': 'rednet_mp3d_best_model.pkl',
+    'load_model': 'model/rednet_mp3d_best_model.pkl',
 }
 
 model_rednet = RedNet(cfg_rednet)

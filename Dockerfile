@@ -22,11 +22,18 @@ RUN cd habitat-lab && pip install -e .
 
 RUN apt install -y ffmpeg libsm6 libxext6 libopengl0
 
+# Install other dependencies
+
 RUN pip install tensorboardX
+
+RUN pip install --ignore-installed PyYAML
+
+RUN pip install open3d plyfile
 
 # Semantic-MapNet
 
-RUN git clone https://github.com/whn09/Semantic-MapNet.git
+# RUN git clone https://github.com/whn09/Semantic-MapNet.git
+COPY ./ /opt/ml/code/Semantic-MapNet
 
 # RUN export TORCH_CUDA_ARCH_LIST="6.0 6.1 7.0+PTX 7.5+PTX"
 

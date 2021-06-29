@@ -26,7 +26,7 @@ cfg_model = {
     'mem_update': 'gru',
     'ego_downsample': False,
 }
-model_path = 'smnet_mp3d_best_model.pkl'
+model_path = 'model/smnet_mp3d_best_model.pkl'
 model = SMNet(cfg_model, device)
 model = model.to(device)
 

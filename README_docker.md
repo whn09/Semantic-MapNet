@@ -6,7 +6,7 @@
 
 * Download https://drive.google.com/drive/folders/1aM9vfDckY6K81mrVhVLmEX5rKZ2B1Q5r?usp=sharing to /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/GT_semmap or data/semmap
 
-* `cd data && ./download_mp_habitat.sh`, Download Matterport3D to /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/Matterport3D or data/mp3d
+* `cd data && ./download_mp_habitat.sh`, Download and unzip Matterport3D to /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/Matterport3D or data/mp3d
 
 ## Download Pretrained Model (Optional)
 

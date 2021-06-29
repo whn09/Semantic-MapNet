@@ -1,8 +1,28 @@
-from pytorch/pytorch:1.7.0-cuda11.0-cudnn8-devel
+# from pytorch/pytorch:1.7.0-cuda11.0-cudnn8-devel
 
-RUN apt update && apt upgrade -y
+from nvidia/cudagl:11.0.3-devel-ubuntu18.04
 
-RUN apt install -y git
+# Install Conda
+ARG PYTHON_VERSION=3.8
+RUN apt-get update && apt-get install -y --no-install-recommends \
+         build-essential \
+         cmake \
+         git \
+         curl \
+         ca-certificates \
+         libjpeg-dev \
+         libpng-dev && \
+     rm -rf /var/lib/apt/lists/*
+
+
+RUN curl -o ~/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+     chmod +x ~/miniconda.sh && \
+     ~/miniconda.sh -b -p /opt/conda && \
+     rm ~/miniconda.sh && \
+     /opt/conda/bin/conda install -y python=$PYTHON_VERSION numpy pyyaml scipy ipython mkl mkl-include ninja cython typing && \
+     /opt/conda/bin/conda install -y -c pytorch magma-cuda110 && \
+     /opt/conda/bin/conda clean -ya
+ENV PATH /opt/conda/bin:$PATH
 
 RUN mkdir -p /opt/ml/code/
 
@@ -18,10 +38,6 @@ RUN git clone --branch stable https://github.com/facebookresearch/habitat-lab.gi
 
 RUN cd habitat-lab && pip install -e .
 
-# Install GL and OpenGL
-
-RUN apt install -y ffmpeg libsm6 libxext6 libopengl0
-
 # Install other dependencies
 
 RUN pip install tensorboardX
@@ -34,6 +50,8 @@ RUN pip install open3d plyfile
 
 # RUN git clone https://github.com/whn09/Semantic-MapNet.git
 COPY ./ /opt/ml/code/Semantic-MapNet
+
+RUN pip install torch==1.7.0+cu110 torchvision==0.8.1+cu110 -f https://download.pytorch.org/whl/torch_stable.html
 
 # RUN export TORCH_CUDA_ARCH_LIST="6.0 6.1 7.0+PTX 7.5+PTX"
 

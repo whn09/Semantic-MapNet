@@ -46,13 +46,11 @@ RUN pip install --ignore-installed PyYAML
 
 RUN pip install open3d plyfile
 
+RUN pip install torch==1.7.0+cu110 torchvision==0.8.1+cu110 -f https://download.pytorch.org/whl/torch_stable.html
+
 # Semantic-MapNet
 
 # RUN git clone https://github.com/whn09/Semantic-MapNet.git
 COPY ./ /opt/ml/code/Semantic-MapNet
 
-RUN pip install torch==1.7.0+cu110 torchvision==0.8.1+cu110 -f https://download.pytorch.org/whl/torch_stable.html
-
-# RUN export TORCH_CUDA_ARCH_LIST="6.0 6.1 7.0+PTX 7.5+PTX"
-
-# RUN cd Semantic-MapNet && pip install -r requirements.txt
+RUN cd Semantic-MapNet && TORCH_CUDA_ARCH_LIST="3.5 5.2 6.0 6.1 7.0+PTX" TORCH_NVCC_FLAGS="-Xfatbin -compress-all" pip install -r requirements.txt

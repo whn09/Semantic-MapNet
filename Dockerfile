@@ -51,8 +51,15 @@ RUN pip install torch==1.7.0+cu110 torchvision==0.8.1+cu110 -f https://download.
 # Semantic-MapNet
 
 # RUN git clone https://github.com/whn09/Semantic-MapNet.git
-COPY ./ /opt/ml/code/Semantic-MapNet
+RUN mkdir /opt/ml/code/Semantic-MapNet/
+COPY ./requirements.txt /opt/ml/code/Semantic-MapNet/
 
 RUN cd Semantic-MapNet && TORCH_CUDA_ARCH_LIST="3.5 5.2 6.0 6.1 7.0+PTX" TORCH_NVCC_FLAGS="-Xfatbin -compress-all" pip install -r requirements.txt
 
+COPY ./ /opt/ml/code/Semantic-MapNet/
+
 RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/training/smnet_training_data/
+
+RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/test_data/projections/
+
+RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/test_data/features/

@@ -1,2 +1,2 @@
-python2 download_mp.py --task download_mp -o /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/Matterport3D/
+python2 download_mp.py --task habitat -o /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/Matterport3D/
 cd /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/Matterport3D/v1/tasks/ && unzip mp3d_habitat.zip

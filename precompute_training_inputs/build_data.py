@@ -40,6 +40,16 @@ nb_frames_per_sample = 20
 paths = json.load(open('data/paths.json', 'r'))
 
 
+envs_splits = json.load(open('data/envs_splits.json', 'r'))
+train_envs = envs_splits['train_envs']
+train_envs = [x for x in train_envs if x in paths]
+train_envs.sort()
+val_envs = envs_splits['val_envs']
+val_envs = [x for x in val_envs if x in paths]
+val_envs.sort()
+train_val_envs = train_envs+val_envs
+train_val_envs.sort()
+
 
 device = torch.device('cuda')
 
@@ -86,6 +96,10 @@ projector = PointCloud(vfov, 1,
 """
 info = {}
 for env, path in paths.items():
+
+    if env not in train_val_envs:
+        print('Skip', env)
+        continue
 
     house, level = env.split('_')
     scene = 'data/mp3d/{}/{}.glb'.format(house, house)

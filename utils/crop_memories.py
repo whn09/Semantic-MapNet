@@ -64,8 +64,14 @@ def crop_memories(memory, size):
     new_min_y = center_y - map_height/2
     new_max_y = center_y + map_height/2
 
-    new_min_y = int(np.round(new_min_y))
-    new_max_y = int(np.round(new_max_y))
+    if np.isnan(new_min_y):
+        new_min_y = 0
+    else:
+        new_min_y = int(np.round(new_min_y))
+    if np.isnan(new_max_y):
+        new_max_y = 0
+    else:
+        new_max_y = int(np.round(new_max_y))
     if new_max_y - new_min_y + 1 > map_height:
         new_max_y -= (new_max_y - new_min_y + 1) - map_height
 

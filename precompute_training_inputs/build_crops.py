@@ -1,8 +1,14 @@
 import os
+import sys
 import json
 import h5py
 import torch
 import numpy as np
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = BASE_DIR
+sys.path.append(os.path.join(ROOT_DIR, '../'))
+
 from utils.crop_memories import crop_memories
 
 from torch_scatter import scatter_add

@@ -18,12 +18,23 @@ files = os.listdir(input_dir)
 device = torch.device('cpu')
 
 def get_projections_indices(file):
-    h5file = h5py.File(os.path.join('data/training/smnet_training_data', file), 'r')
+#    print('file:', file)
+#    if file=='1LXtFkjw3qL_2_2.h5' or file=='1LXtFkjw3qL_2_41.h5' or file=='1LXtFkjw3qL_2_46.h5' or file=='1LXtFkjw3qL_2_34.h5' or file=='HxpKQynjfin_0_5.h5' or file=='HxpKQynjfin_0_10.h5' or file=='HxpKQynjfin_0_24.h5' or file=='x8F5xyUWy9e_0_43.h5' or file=='HxpKQynjfin_0_49.h5' or file=='x8F5xyUWy9e_0_46.h5' or file=='HxpKQynjfin_0_25.h5' or file=='1LXtFkjw3qL_2_7.h5':
+#        return 
+    try:
+        h5file = h5py.File(os.path.join('data/training/smnet_training_data', file), 'r')
+    except:
+        print('Skip:', file)
+        return
     point_clouds = np.array(h5file['projection_indices'])
     heights = point_clouds[:,:,:,1]
     h5file.close()
-    
-    h5file = h5py.File(os.path.join('data/training/smnet_training_data_indices', file), 'r')
+   
+    try:
+        h5file = h5py.File(os.path.join('data/training/smnet_training_data_indices', file), 'r')
+    except:
+        print('Skip:', file)
+        return
     proj_indices = np.array(h5file['indices'])
     masks_outliers = np.array(h5file['masks_outliers'])
     h5file.close()

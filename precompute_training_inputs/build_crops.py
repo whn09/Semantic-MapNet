@@ -38,7 +38,9 @@ instance_maps = np.zeros((len(files), 250, 250), dtype=np.int32)
 observed_masks = np.zeros((len(files), 250, 250), dtype=np.bool)
 semantic_maps_env_names = []
 for n, file in tqdm(enumerate(files)):
-
+    print('file:', file)
+    if file=='1LXtFkjw3qL_2_2.h5' or file=='1LXtFkjw3qL_2_41.h5':
+        continue
     house, level, _ = file.split('_')
     env = '_'.join((house, level))
 

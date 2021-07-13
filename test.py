@@ -98,3 +98,15 @@ with torch.no_grad():
             f.create_dataset('observed_map', data=observed_map, dtype=np.bool)
             f.create_dataset('height_map', data=height_map, dtype=np.float32)
 
+        from utils.semantic_utils import color_label
+        semmap_color = color_label(semmap)
+        semmap_color = semmap_color.transpose(1,2,0)
+        semmap_color = semmap_color.astype(np.uint8)
+        
+        import matplotlib.pyplot as plt 
+        plt.imshow(semmap_color)
+        plt.title('Topdown semantic map prediction')
+        plt.axis('off')
+        # plt.show()
+        plt.savefig(os.path.join(output_dir, env+'.jpg'))
+

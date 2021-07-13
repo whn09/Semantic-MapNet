@@ -108,7 +108,10 @@ for n, file in tqdm(enumerate(files)):
     mask = map > 0
 
     mask = mask.cpu().numpy()
-    mask_observe, dim = crop_memories(mask, (250,250))
+    try:
+        mask_observe, dim = crop_memories(mask, (250,250))
+    except:
+        print('Skip3:', file)
 
     min_y, max_y, min_x, max_x = dim
 

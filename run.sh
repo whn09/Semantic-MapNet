@@ -1,3 +1,12 @@
+mkdir -p /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/training/smnet_training_data/
+mkdir -p /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/training/smnet_training_data_semmap/
+mkdir -p /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/training/smnet_training_data_indices/
+mkdir -p /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/training/smnet_training_data_maxHIndices/
+mkdir -p /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/test_data/projections/
+mkdir -p /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/test_data/features/
+mkdir -p /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/outputs/semmap/
+mkdir -p /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/freespace_map/
+
 nvidia-docker run -it --shm-size 16G \
  -v /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/GT_densePC_objectsonly:/opt/ml/code/Semantic-MapNet/data/object_point_clouds \
  -v /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/GT_semmap:/opt/ml/code/Semantic-MapNet/data/semmap \

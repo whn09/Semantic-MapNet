@@ -40,6 +40,8 @@
 
 * `cd objectnav_mp3d_v1/train && gzip train.json.gz -d`
 
+* `cd content && gzip *.gz -d && cd ..`
+
 * `cd ../../objectnav_mp3d_v1/val && gzip val.json.gz -d`
 
 * `cd content && gzip *.gz -d && cd ..`

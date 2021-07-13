@@ -56,6 +56,10 @@ COPY ./requirements.txt /opt/ml/code/Semantic-MapNet/
 
 RUN cd Semantic-MapNet && TORCH_CUDA_ARCH_LIST="3.5 5.2 6.0 6.1 7.0+PTX" TORCH_NVCC_FLAGS="-Xfatbin -compress-all" pip install -r requirements.txt
 
+RUN apt update && apt install -y libpq-dev
+
+RUN pip install geopandas geocube
+
 COPY ./ /opt/ml/code/Semantic-MapNet/
 
 RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/training/smnet_training_data/
@@ -73,7 +77,3 @@ RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/test_data/features/
 RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/outputs/semmap/
 
 RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/ObjectNav/freespace_map/
-
-RUN apt update && apt install -y libpq-dev
-
-RUN pip install geopandas geocube

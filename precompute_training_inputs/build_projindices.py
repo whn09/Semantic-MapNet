@@ -24,7 +24,7 @@ def get_projections_indices(file):
     try:
         h5file = h5py.File(os.path.join('data/training/smnet_training_data', file), 'r')
     except:
-        print('Skip:', file)
+        print('Skip1:', file)
         return
     point_clouds = np.array(h5file['projection_indices'])
     heights = point_clouds[:,:,:,1]
@@ -33,7 +33,7 @@ def get_projections_indices(file):
     try:
         h5file = h5py.File(os.path.join('data/training/smnet_training_data_indices', file), 'r')
     except:
-        print('Skip:', file)
+        print('Skip2:', file)
         return
     proj_indices = np.array(h5file['indices'])
     masks_outliers = np.array(h5file['masks_outliers'])

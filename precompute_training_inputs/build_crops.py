@@ -38,9 +38,6 @@ instance_maps = np.zeros((len(files), 250, 250), dtype=np.int32)
 observed_masks = np.zeros((len(files), 250, 250), dtype=np.bool)
 semantic_maps_env_names = []
 for n, file in tqdm(enumerate(files)):
-    print('file:', file)
-    if file=='1LXtFkjw3qL_2_2.h5' or file=='1LXtFkjw3qL_2_41.h5':
-        continue
     house, level, _ = file.split('_')
     env = '_'.join((house, level))
 
@@ -50,12 +47,20 @@ for n, file in tqdm(enumerate(files)):
     map_width = world_discret_dim[0]
     map_height = world_discret_dim[2]
 
-    h5file = h5py.File(os.path.join(semmap_dir, env + '.h5'), 'r')
+    try:
+        h5file = h5py.File(os.path.join(semmap_dir, env + '.h5'), 'r')
+    except:
+        print('Skip1:', file)
+        continue
     semmap = np.array(h5file['map_semantic'], dtype=np.int)
     insmap = np.array(h5file['map_instance'], dtype=np.int)
     h5file.close()
 
-    h5file = h5py.File(os.path.join(data_dir, file), 'r')
+    try:
+        h5file = h5py.File(os.path.join(data_dir, file), 'r')
+    except:
+        print('Skip2:', file)
+        continue
     rgb = np.array(h5file['rgb'], dtype=np.uint8)
     projection_indices = np.array(h5file['projection_indices'], dtype=np.float32)
     masks_outliers = np.array(h5file['masks_outliers'], dtype=np.bool)

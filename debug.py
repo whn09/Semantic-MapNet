@@ -28,6 +28,9 @@ for key in paths.keys():
 print('paths_houses:', len(paths_houses))
 
 print('17DRP5sb8fy_0:', len(paths['17DRP5sb8fy_0']['positions']))
+print('HxpKQynjfin_0:', len(paths['HxpKQynjfin_0']['positions']))
+print('1LXtFkjw3qL_2:', len(paths['1LXtFkjw3qL_2']['positions']))
+print('x8F5xyUWy9e_0:', len(paths['x8F5xyUWy9e_0']['positions']))
 print('jtcxE69GiFV_1:', len(paths['jtcxE69GiFV_1']['positions']))
 
 print('min_positions:', min_positions)

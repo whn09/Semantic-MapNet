@@ -22,8 +22,8 @@ from multiprocessing import Pool
 resolution = 0.02
 
 
-data_dir = '../data/ObjectNav/objectnav_mp3d_v1/val/'
-output_dir = '../data/ObjectNav/'
+data_dir = 'data/ObjectNav/objectnav_mp3d_v1/val/'
+output_dir = 'data/ObjectNav/'
 
 all_goals = json.load(open('ObjNav_GT_goals.json', 'r'))
 
@@ -50,11 +50,11 @@ def run_astar(episode):
     
     
     # -- folders
-    data_dir = '../data/ObjectNav/objectnav_mp3d_v1/val/'
-    folder_pred = '../data/ObjectNav/semmap/'
-    floormap_dir = '../data/ObjectNav/freespace_map/'
+    data_dir = 'data/ObjectNav/objectnav_mp3d_v1/val/'
+    folder_pred = 'data/ObjectNav/semmap/'
+    floormap_dir = 'data/ObjectNav/freespace_map/'
     
-    info = json.load(open('../data/ObjectNav/semmap_objnav_info.json', 'r'))
+    info = json.load(open('data/ObjectNav/semmap_objnav_info.json', 'r'))
 
 
 

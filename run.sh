@@ -7,7 +7,7 @@ mkdir -p /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/test_data/feature
 mkdir -p /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/outputs/semmap/
 mkdir -p /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/freespace_map/
 
-nvidia-docker run -it --shm-size 16G \
+nvidia-docker run -it --shm-size 16G -p 6006:6006 \
  -v /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/GT_densePC_objectsonly:/opt/ml/code/Semantic-MapNet/data/object_point_clouds \
  -v /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/GT_semmap:/opt/ml/code/Semantic-MapNet/data/semmap \
  -v /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/Matterport3D/v1/tasks/mp3d:/opt/ml/code/Semantic-MapNet/data/mp3d \

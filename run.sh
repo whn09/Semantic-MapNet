@@ -5,4 +5,5 @@ nvidia-docker run -it \
  -v /home/ec2-user/SageMaker/dataset/Semantic-MapNet/model:/opt/ml/code/Semantic-MapNet/model \
  -v /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/training:/opt/ml/code/Semantic-MapNet/data/training \
  -v /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/test_data:/opt/ml/code/Semantic-MapNet/data/test_data \
+ -v /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/outputs:/opt/ml/code/Semantic-MapNet/data/outputs \
 semantic-mapnet

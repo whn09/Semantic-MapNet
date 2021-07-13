@@ -60,6 +60,14 @@ COPY ./ /opt/ml/code/Semantic-MapNet/
 
 RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/training/smnet_training_data/
 
+RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/training/smnet_training_data_semmap/
+
+RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/training/smnet_training_data_indices/
+
+RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/training/smnet_training_data_maxHIndices/
+
 RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/test_data/projections/
 
 RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/test_data/features/
+
+RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/outputs/semmap/

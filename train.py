@@ -375,7 +375,7 @@ if __name__ == "__main__":
     print("CHECKPOINTDIR: {}".format(chkptdir))
     Path(chkptdir).mkdir(parents=True, exist_ok=True)
 
-    world_size=1  # 1, 4, 8
+    world_size=4  # 1, 4, 8
     mp.spawn(train,
              args=(world_size, cfg),
              nprocs=world_size,

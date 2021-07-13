@@ -13,6 +13,7 @@ from scipy.ndimage import binary_dilation
 from scipy.spatial.transform import Rotation as R
 import bisect
 
+import sys
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = BASE_DIR
 sys.path.append(os.path.join(ROOT_DIR, '../'))

@@ -115,11 +115,11 @@ def run_astar(episode):
     map_semantic = map_semantic.astype(np.int)
 
 
-    #goals = None 
-    goals = all_goals[house][episode['episode_id']]
-    goals = np.array(goals)
-    goals -= map_world_shift
-    goals = goals[:,[0,2]]
+    goals = None 
+    # goals = all_goals[house][episode['episode_id']]
+    # goals = np.array(goals)
+    # goals -= map_world_shift
+    # goals = goals[:,[0,2]]
 
    
     

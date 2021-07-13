@@ -26,8 +26,6 @@
 
 * `cd Semantic-MapNet`
 
-* `tensorboard --logdir runs/gru_fullrez_lastlayer_m256 --bind_all &`
-
 * Follow instructions in README.md [Workflow]
 
 # Object-Goal Navigation

@@ -1,4 +1,4 @@
-nvidia-docker run -it \
+nvidia-docker run -it --shm-size 8G \
  -v /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/GT_densePC_objectsonly:/opt/ml/code/Semantic-MapNet/data/object_point_clouds \
  -v /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/GT_semmap:/opt/ml/code/Semantic-MapNet/data/semmap \
  -v /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/Matterport3D/v1/tasks/mp3d:/opt/ml/code/Semantic-MapNet/data/mp3d \

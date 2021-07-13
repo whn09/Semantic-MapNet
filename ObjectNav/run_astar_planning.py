@@ -23,13 +23,15 @@ from astar import Astar, Node
 
 from multiprocessing import Pool
 
+import csv
+
 resolution = 0.02
 
 
 data_dir = 'data/ObjectNav/objectnav_mp3d_v1/val/'
 output_dir = 'data/ObjectNav/'
 
-all_goals = json.load(open('ObjNav_GT_goals.json', 'r'))
+# all_goals = json.load(open('ObjNav_GT_goals.json', 'r'))
 
 def run_astar(episode):
 

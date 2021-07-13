@@ -26,6 +26,8 @@
 
 * `cd Semantic-MapNet`
 
+* `tensorboard --logdir runs/ --bind_all &`
+
 * Follow instructions in README.md [Workflow]
 
 # Object-Goal Navigation

@@ -60,6 +60,8 @@ RUN apt update && apt install -y libpq-dev
 
 RUN pip install geopandas geocube
 
+RUN pip install tensorboard
+
 COPY ./ /opt/ml/code/Semantic-MapNet/
 
 RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/training/smnet_training_data/

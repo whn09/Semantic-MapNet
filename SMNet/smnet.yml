@@ -15,8 +15,8 @@ data:
     feature_type: lastlayer
 training:
     # train_epoch: 200
-    train_epoch: 4
-    batch_size: 8
+    train_epoch: 2
+    batch_size: 32
     n_workers: 2
     print_interval: 20
     optimizer:

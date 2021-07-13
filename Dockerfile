@@ -73,3 +73,7 @@ RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/test_data/features/
 RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/outputs/semmap/
 
 RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/ObjectNav/freespace_map/
+
+RUN apt update && apt install -y libpq-dev
+
+RUN pip install geopandas geocube

@@ -141,12 +141,15 @@ for n, file in tqdm(enumerate(files)):
         f.create_dataset('indices', data=pixels_in_map, dtype=np.int32)
 
 
-    info[file]={'dim': [min_y, max_y, min_x, max_x]}
+    try:
+        info[file]={'dim': [min_y, max_y, min_x, max_x]}
 
-    semantic_maps_env_names.append(file)
-    semantic_maps[n,:,:] = sample_semmap
-    instance_maps[n,:,:] = sample_insmap
-    observed_masks[n,:,:] = mask_observe
+        semantic_maps_env_names.append(file)
+        semantic_maps[n,:,:] = sample_semmap
+        instance_maps[n,:,:] = sample_insmap
+        observed_masks[n,:,:] = mask_observe
+    except:
+        print('Skip4:', file)
 
 
 json.dump(info, open('data/training/info_training_data_crops.json', 'w'))

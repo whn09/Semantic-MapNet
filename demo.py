@@ -238,4 +238,5 @@ with torch.no_grad():
     plt.imshow(semmap_color)
     plt.title('Topdown semantic map prediction')
     plt.axis('off')
-    plt.show()
+    # plt.show()
+    plt.savefig('demo.jpg')

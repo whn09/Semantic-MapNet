@@ -341,6 +341,9 @@ def train(rank, world_size, cfg):
 
         scheduler.step(epoch)
 
+    if rank == 0:
+        writer.close()
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="config")

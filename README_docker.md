@@ -27,3 +27,29 @@
 * `cd Semantic-MapNet`
 
 * Follow instructions in README.md [Workflow]
+
+# Object-Goal Navigation
+
+## Download Dataset
+
+* `cd /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/`
+
+* `wget https://dl.fbaipublicfiles.com/habitat/data/datasets/objectnav/m3d/v1/objectnav_mp3d_v1.zip`
+
+* `unzip objectnav_mp3d_v1.zip -d objectnav_mp3d_v1`
+
+* `cd objectnav_mp3d_v1/train && gzip train.json.gz -d`
+
+* `cd ../../objectnav_mp3d_v1/val && gzip val.json.gz -d`
+
+* `cd ../../objectnav_mp3d_v1/val_mini && gzip val_mini.json.gz -d`
+
+## Download Pretrained Model
+
+* Download and unzip https://drive.google.com/file/d/1wPtJaoDO15OtPcWcXuAbCtGQ3r-MdQM2/view?usp=sharing to /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/semmap or data/ObjectNav/semmap/
+
+## Run
+
+* `python ObjectNav/build_freespace_maps.py`
+
+* `python ObjectNav/run_astar_planning.py`

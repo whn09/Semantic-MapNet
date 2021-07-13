@@ -14,7 +14,8 @@ data:
     ego_downsample: False
     feature_type: lastlayer
 training:
-    train_epoch: 200
+    # train_epoch: 200
+    train_epoch: 2
     batch_size: 8
     n_workers: 2
     print_interval: 20

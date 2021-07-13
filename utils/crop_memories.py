@@ -15,8 +15,6 @@ def crop_memories(memory, size):
 
     """
 
-    print('crop_memories size:', size)
-
     map_height, map_width = size
     map_height_padded, map_width_padded = memory.shape[:2]
 

@@ -24,16 +24,17 @@ class SMNetLoader(data.Dataset):
         self.files = [x for x in self.files if '_'.join(x.split('_')[:2]) in envs_splits['{}_envs'.format(split)]]
         self.envs = [x.split('.')[0] for x in self.files]
 
-        print('self.files:', self.files)
-        print('self.envs:', self.envs)
+        # print('self.files:', self.files)
+        # print('self.envs:', self.envs)
 
         # -- load semantic map GT
         h5file = h5py.File(os.path.join(self.root, 'smnet_training_data_semmap.h5'), 'r')
         self.semmap_GT = np.array(h5file['semantic_maps'])
         h5file.close()
         self.semmap_GT_envs =json.load(open(os.path.join(self.root,'smnet_training_data_semmap.json'), 'r'))
-        print('self.semmap_GT_envs:', self.semmap_GT_envs)
-        self.semmap_GT_indx = {i: self.semmap_GT_envs.index(self.envs[i]) for i in range(len(self.files))}
+        # print('self.semmap_GT_envs:', self.semmap_GT_envs)
+        # self.semmap_GT_indx = {i: self.semmap_GT_envs.index(self.envs[i]) for i in range(len(self.files))}
+        self.semmap_GT_indx = {i: self.semmap_GT_envs.index(self.files[i]) for i in range(len(self.files))}
 
         # -- load projection indices
         if self.ego_downsample:

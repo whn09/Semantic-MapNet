@@ -13,12 +13,25 @@ print('info_houses:', len(info_houses))
 paths = json.load(open('data/paths.json', 'r'))
 print('paths:', len(paths))
 paths_houses = {}
+min_positions = 999999999
+max_positions = 0
 for key in paths.keys():
     house = key.split('_')[0]
     if house not in paths_houses:
         paths_houses[house] = 0
     paths_houses[house] += 1
+    num_positions = len(paths[key]['positions'])
+    if num_positions < min_positions:
+        min_positions = num_positions
+    if num_positions > max_positions:
+        max_positions = num_positions
 print('paths_houses:', len(paths_houses))
+
+print('17DRP5sb8fy_0:', len(paths['17DRP5sb8fy_0']['positions']))
+print('jtcxE69GiFV_1:', len(paths['jtcxE69GiFV_1']['positions']))
+
+print('min_positions:', min_positions)
+print('max_positions:', max_positions)
 
 houses_dim = json.load(open('data/houses_dim.json','r'))
 print('houses_dim:', len(houses_dim))

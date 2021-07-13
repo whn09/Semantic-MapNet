@@ -168,6 +168,8 @@ def train(rank, world_size, cfg):
             logger.info("Loading model and optimizer from checkpoint '{}'".format(cfg["training"]["load_model"]))
             print("Loading model and optimizer from checkpoint '{}'".format(cfg["training"]["load_model"]))
 
+    if rank == 0:
+        writer.add_graph(model)
 
     # start training
     iter = start_iter

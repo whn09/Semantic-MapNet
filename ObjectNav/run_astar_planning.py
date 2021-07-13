@@ -65,7 +65,7 @@ def run_astar(episode):
 
 
     # -- setup naming bindings
-    read_tsv = csv.reader(open("mpcat40.tsv"), delimiter="\t")
+    read_tsv = csv.reader(open(os.path.join(ROOT_DIR, "mpcat40.tsv")), delimiter="\t")
     mpcat40 = {line[0]: line[1] for line in read_tsv}
     
     jsonfile = json.load(open(os.path.join(data_dir, 'val.json'), 'r'))

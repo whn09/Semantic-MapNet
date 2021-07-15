@@ -31,7 +31,7 @@ resolution = 0.02
 data_dir = 'data/ObjectNav/objectnav_mp3d_v1/val/'
 output_dir = 'data/ObjectNav/'
 
-# all_goals = json.load(open('ObjNav_GT_goals.json', 'r'))
+all_goals = json.load(open(os.path.join(output_dir, 'ObjNav_GT_goals.json'), 'r'))
 
 def run_astar(episode):
 
@@ -65,7 +65,7 @@ def run_astar(episode):
 
 
     # -- setup naming bindings
-    read_tsv = csv.reader(open(os.path.join(ROOT_DIR, "mpcat40.tsv")), delimiter="\t")
+    read_tsv = csv.reader(open(os.path.join(output_dir, "mpcat40.tsv")), delimiter="\t")
     mpcat40 = {line[0]: line[1] for line in read_tsv}
     
     jsonfile = json.load(open(os.path.join(data_dir, 'val.json'), 'r'))
@@ -115,11 +115,11 @@ def run_astar(episode):
     map_semantic = map_semantic.astype(np.int)
 
 
-    goals = None 
-    # goals = all_goals[house][episode['episode_id']]
-    # goals = np.array(goals)
-    # goals -= map_world_shift
-    # goals = goals[:,[0,2]]
+    # goals = None 
+    goals = all_goals[house][episode['episode_id']]
+    goals = np.array(goals)
+    goals -= map_world_shift
+    goals = goals[:,[0,2]]
 
    
     

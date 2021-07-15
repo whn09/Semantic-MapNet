@@ -50,6 +50,8 @@
 
 * `cd ../../objectnav_mp3d_v1/val_mini && gzip val_mini.json.gz -d`
 
+* Download https://drive.google.com/file/d/1Y6Qb6eGryZNkbjWGiqQJE2k-zV0aArrd/view?usp=sharing to /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/ or data/ObjectNav/
+
 ## Download Pretrained Model
 
 * Download and unzip https://drive.google.com/file/d/1wPtJaoDO15OtPcWcXuAbCtGQ3r-MdQM2/view?usp=sharing to /home/ec2-user/SageMaker/dataset/Semantic-MapNet/data/semmap or data/ObjectNav/semmap/

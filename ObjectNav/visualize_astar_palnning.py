@@ -21,6 +21,9 @@ for house in outputs.keys():
         env = outputs[house][idx]['env']
         print('path:', len(path))
 
+        if len(path) == 0:
+            continue
+
         img = cv2.imread(os.path.join(freespace_map_dir, env+'_color.png'))
         width = img.shape[1]
         height = img.shape[0]

@@ -244,7 +244,7 @@ files = ['2azQ1b91cZZ.json',
          'EU6Fwq7SyZv.json',
          'oLBMNvg9in8.json',
          'pLe4wQe7qrG.json',
-        #  'QUCTc6BB5sX.json',  # too slow
+         'QUCTc6BB5sX.json',  # too slow
          'TbHJrupSAjP.json',
          'X7HyMhZNoso.json',
          'x8F5xyUWy9e.json',
@@ -263,7 +263,7 @@ for file in tqdm(files):
     jsonfile = json.load(open(os.path.join(data_dir, 'content', file), 'r'))
     print('episodes:', len(jsonfile['episodes']))
      
-    res = pool.map(run_astar, jsonfile['episodes'][:32])
+    res = pool.map(run_astar, jsonfile['episodes'][:32])  # TODO only use 32 episodes
     # res = [run_astar(jsonfile['episodes'][0])]  # TODO only use 1 episode
 
     for i, r in enumerate(res):

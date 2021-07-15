@@ -57,6 +57,6 @@ for env in tqdm(envs):
     plt.imshow(semmap_color)
     plt.axis('off')
     # plt.show()
-    plt.savefig(os.path.join(output_dir, env+'_color.jpg'), bbox_inches='tight', dpi=semmap_color.dpi, pad_inches=0.0)
+    plt.savefig(os.path.join(output_dir, env+'_color.jpg'), bbox_inches='tight', pad_inches=0.0)
 
 

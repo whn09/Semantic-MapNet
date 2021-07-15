@@ -124,7 +124,7 @@ def run_astar(episode):
     goals = np.array(goals)
     goals -= map_world_shift
     goals = goals[:,[0,2]]
-
+    print('goals:', goals.shape)
    
     
     # -- get init position

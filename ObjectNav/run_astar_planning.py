@@ -90,7 +90,7 @@ def run_astar(episode):
     if obj_semantic_name in object_whitelist:
         sid = object_whitelist.index(obj_semantic_name)+1
     else:
-        return (episode['episode_id'], [], [])
+        return (episode['episode_id'], [], [], '')
     print('sid:', sid)
     
    

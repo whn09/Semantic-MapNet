@@ -43,4 +43,16 @@ for env in tqdm(envs):
     filename = os.path.join(output_dir, env+'.png')
     imwrite(filename, nav_map)
 
+    from utils.semantic_utils import color_label
+    semmap_color = color_label(semmap_pred)
+    semmap_color = semmap_color.transpose(1,2,0)
+    semmap_color = semmap_color.astype(np.uint8)
+    
+    import matplotlib.pyplot as plt 
+    plt.imshow(semmap_color)
+    plt.title('Topdown semantic map prediction')
+    plt.axis('off')
+    # plt.show()
+    plt.savefig(os.path.join(output_dir, env+'_color.jpg'))
+
 

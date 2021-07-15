@@ -250,7 +250,7 @@ for file in tqdm(files):
     
     jsonfile = json.load(open(os.path.join(data_dir, 'content', file), 'r'))
      
-    res = pool.map(run_astar, jsonfile['episodes'])
+    res = pool.map(run_astar, jsonfile['episodes'][:1])  # TODO only use 1 episode
 
     for i, r in enumerate(res):
         

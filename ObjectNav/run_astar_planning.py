@@ -252,7 +252,7 @@ for file in tqdm(files):
     print('episodes:', len(jsonfile['episodes']))
      
     # res = pool.map(run_astar, jsonfile['episodes'])
-    res = [run_astar(jsonfile['episodes'][:1])]  # TODO only use 1 episode
+    res = [run_astar(jsonfile['episodes'][0])]  # TODO only use 1 episode
 
     for i, r in enumerate(res):
         

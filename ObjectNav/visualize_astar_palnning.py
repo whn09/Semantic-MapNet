@@ -19,7 +19,7 @@ for house in outputs.keys():
         env = outputs[house][episode]['env']
         print('path:', len(path))
 
-        img = cv2.imread(os.path.join(freespace_map_dir, env+'.png'))
+        img = cv2.imread(os.path.join(freespace_map_dir, env+'_color.png'))
         width = img.shape[1]
         height = img.shape[0]
         print('img:', img.shape)

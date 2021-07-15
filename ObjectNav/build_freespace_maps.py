@@ -9,6 +9,11 @@ from scipy.ndimage import binary_dilation
 
 from imageio import imwrite
 
+import sys
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = BASE_DIR
+sys.path.append(os.path.join(ROOT_DIR, '../'))
+
 folder_pred = 'data/ObjectNav/semmap/'
 output_dir =  'data/ObjectNav/freespace_map/'
 

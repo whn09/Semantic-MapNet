@@ -219,7 +219,7 @@ def run_astar(episode):
         
         actions.append(0)
     
-    return (episode['episode_id'], actions, path)
+    return (episode['episode_id'], actions, path, env)
 
 
 
@@ -257,7 +257,7 @@ for file in tqdm(files):
 
     for i, r in enumerate(res):
         
-        outputs[house][i] = {'actions': r[1], 'path': r[2]}
+        outputs[house][i] = {'actions': r[1], 'path': r[2], 'env': r[3]}
 
 
 json.dump(outputs, 

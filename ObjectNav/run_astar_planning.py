@@ -162,12 +162,9 @@ def run_astar(episode):
     floormap = binary_closing(floormap.astype(int), structure=np.ones((10,10))).astype(np.bool)
     navmap = floormap & (map_semantic==0)
 
+    # visualize navmap
     from imageio import imwrite
     from skimage import img_as_uint
-    print('map_semantic:', type(map_semantic))
-    print('floormap:', type(floormap))
-    print('goal_mask:', type(goal_mask))
-    print('navmap:', type(navmap))
     imwrite(os.path.join(output_dir, 'freespace_map', env+'_map_semantic.png'), map_semantic)
     imwrite(os.path.join(output_dir, 'freespace_map', env+'_floormap.png'), img_as_uint(floormap))
     imwrite(os.path.join(output_dir, 'freespace_map', env+'_goal_mask.png'), img_as_uint(goal_mask))
@@ -266,7 +263,7 @@ for file in tqdm(files):
     jsonfile = json.load(open(os.path.join(data_dir, 'content', file), 'r'))
     print('episodes:', len(jsonfile['episodes']))
      
-    res = pool.map(run_astar, jsonfile['episodes'][:2])
+    res = pool.map(run_astar, jsonfile['episodes'][:4])
     # res = [run_astar(jsonfile['episodes'][0])]  # TODO only use 1 episode
 
     for i, r in enumerate(res):

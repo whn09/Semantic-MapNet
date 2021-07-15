@@ -62,6 +62,8 @@ RUN pip install geopandas geocube
 
 RUN pip install tensorboard==2.3.0
 
+RUN pip install scikit-image
+
 COPY ./ /opt/ml/code/Semantic-MapNet/
 
 RUN mkdir -p /opt/ml/code/Semantic-MapNet/data/training/smnet_training_data/

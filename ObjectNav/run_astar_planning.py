@@ -167,7 +167,7 @@ def run_astar(episode):
     from skimage import img_as_uint
     imwrite(os.path.join(output_dir, 'freespace_map', env+'_map_semantic.png'), map_semantic)
     imwrite(os.path.join(output_dir, 'freespace_map', env+'_floormap.png'), img_as_uint(floormap))
-    imwrite(os.path.join(output_dir, 'freespace_map', env+'_goal_mask.png'), img_as_uint(goal_mask))
+    imwrite(os.path.join(output_dir, 'freespace_map', env+'_goal_mask_sid_'+str(sid)+'.png'), img_as_uint(goal_mask))
     imwrite(os.path.join(output_dir, 'freespace_map', env+'_navmap.png'), img_as_uint(navmap))
 
     # compute Heuristic

@@ -240,16 +240,16 @@ atexit.register(pool.close)
 
 
 files = ['2azQ1b91cZZ.json',
-        #  '8194nk5LbLH.json',
-        #  'EU6Fwq7SyZv.json',
-        #  'oLBMNvg9in8.json',
-        #  'pLe4wQe7qrG.json',
-        #  'QUCTc6BB5sX.json',
-        #  'TbHJrupSAjP.json',
-        #  'X7HyMhZNoso.json',
-        #  'x8F5xyUWy9e.json',
-        #  'Z6MFQCViBuw.json',
-        #  'zsNo4HB9uLZ.json',
+         '8194nk5LbLH.json',
+         'EU6Fwq7SyZv.json',
+         'oLBMNvg9in8.json',
+         'pLe4wQe7qrG.json',
+         'QUCTc6BB5sX.json',
+         'TbHJrupSAjP.json',
+         'X7HyMhZNoso.json',
+         'x8F5xyUWy9e.json',
+         'Z6MFQCViBuw.json',
+         'zsNo4HB9uLZ.json',
          ]
 
 outputs = {}

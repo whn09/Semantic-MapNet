@@ -223,8 +223,9 @@ def run_astar(episode):
 
 
 
-
-# pool = Pool(32)
+import atexit
+pool = Pool(32)
+atexit.register(pool.close)
 
 
 files = ['2azQ1b91cZZ.json',

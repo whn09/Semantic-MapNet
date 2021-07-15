@@ -55,7 +55,6 @@ for env in tqdm(envs):
     
     import matplotlib.pyplot as plt 
     plt.imshow(semmap_color)
-    plt.title('Topdown semantic map prediction')
     plt.axis('off')
     # plt.show()
     plt.savefig(os.path.join(output_dir, env+'_color.jpg'))

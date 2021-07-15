@@ -224,7 +224,7 @@ def run_astar(episode):
 
 
 
-pool = Pool(32)
+# pool = Pool(32)
 
 
 files = ['2azQ1b91cZZ.json',

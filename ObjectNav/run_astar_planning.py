@@ -31,7 +31,11 @@ resolution = 0.02
 data_dir = 'data/ObjectNav/objectnav_mp3d_v1/val/'
 output_dir = 'data/ObjectNav/'
 
+import time
+start = time.time()
 all_goals = json.load(open(os.path.join(output_dir, 'ObjNav_GT_goals.json'), 'r'))
+end = time.time()
+print('Loaded all_goals:', len(all_goals), 'costed', end-start, 'seconds')
 
 def run_astar(episode):
 
@@ -224,16 +228,17 @@ pool = Pool(32)
 
 
 files = ['2azQ1b91cZZ.json',
-         '8194nk5LbLH.json',
-         'EU6Fwq7SyZv.json',
-         'oLBMNvg9in8.json',
-         'pLe4wQe7qrG.json',
-         'QUCTc6BB5sX.json',
-         'TbHJrupSAjP.json',
-         'X7HyMhZNoso.json',
-         'x8F5xyUWy9e.json',
-         'Z6MFQCViBuw.json',
-         'zsNo4HB9uLZ.json',]
+        #  '8194nk5LbLH.json',
+        #  'EU6Fwq7SyZv.json',
+        #  'oLBMNvg9in8.json',
+        #  'pLe4wQe7qrG.json',
+        #  'QUCTc6BB5sX.json',
+        #  'TbHJrupSAjP.json',
+        #  'X7HyMhZNoso.json',
+        #  'x8F5xyUWy9e.json',
+        #  'Z6MFQCViBuw.json',
+        #  'zsNo4HB9uLZ.json',
+         ]
 
 outputs = {}
 

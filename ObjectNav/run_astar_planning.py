@@ -257,8 +257,7 @@ for file in tqdm(files):
 
     for i, r in enumerate(res):
         
-        # outputs[house][i] = {'actions': r[1], 'path': r[2], 'env': r[3]}
-        outputs[house][r[0]] = {'actions': r[1], 'path': r[2], 'env': r[3]}
+        outputs[house][i] = {'actions': r[1], 'path': r[2], 'env': r[3]}
 
 
 json.dump(outputs, 

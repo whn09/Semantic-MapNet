@@ -9,6 +9,7 @@ from scipy.ndimage import binary_dilation
 
 from imageio import imwrite
 
+import cv2
 import sys
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = BASE_DIR
@@ -50,13 +51,14 @@ for env in tqdm(envs):
 
     from utils.semantic_utils import color_label
     semmap_color = color_label(semmap_pred)
-    semmap_color = semmap_color.transpose(1,2,0)
+    # semmap_color = semmap_color.transpose(1,2,0)
     semmap_color = semmap_color.astype(np.uint8)
     
-    import matplotlib.pyplot as plt 
-    plt.imshow(semmap_color)
-    plt.axis('off')
-    # plt.show()
-    plt.savefig(os.path.join(output_dir, env+'_color.jpg'), bbox_inches='tight', pad_inches=0.0)
+    # import matplotlib.pyplot as plt 
+    # plt.imshow(semmap_color)
+    # plt.axis('off')
+    # # plt.show()
+    # plt.savefig(os.path.join(output_dir, env+'_color.jpg'), bbox_inches='tight', pad_inches=0.0)
+    cv2.imwrite(os.path.join(output_dir, env+'_color.jpg'), semmap_color)
 
 

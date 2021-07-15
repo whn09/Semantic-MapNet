@@ -82,12 +82,16 @@ def run_astar(episode):
 
 
     # -- sample object category target
+    print('episode[\'object_category\']:', episode['object_category'])
     obj_semantic_id = category_to_mp3d_category_id[episode['object_category']]
+    print('obj_semantic_id:', obj_semantic_id)
     obj_semantic_name = mpcat40[str(obj_semantic_id)]
+    print('obj_semantic_name:', obj_semantic_name)
     if obj_semantic_name in object_whitelist:
         sid = object_whitelist.index(obj_semantic_name)+1
     else:
         return (episode['episode_id'], [], [])
+    print('sid:', sid)
     
    
     # -- select floor -> env
@@ -157,7 +161,12 @@ def run_astar(episode):
     goal_mask = binary_opening(goal_mask.astype(int), structure=np.ones((3,3))).astype(np.bool)
     floormap = binary_closing(floormap.astype(int), structure=np.ones((10,10))).astype(np.bool)
     navmap = floormap & (map_semantic==0)
-    
+
+    from imageio import imwrite
+    imwrite(os.path.join(output_dir, 'freespace_map', env+'_map_semantic.png'), map_semantic)
+    imwrite(os.path.join(output_dir, 'freespace_map', env+'_floormap.png'), floormap)
+    imwrite(os.path.join(output_dir, 'freespace_map', env+'_goal_mask.png'), goal_mask)
+    imwrite(os.path.join(output_dir, 'freespace_map', env+'_navmap.png'), navmap)
 
     # compute Heuristic
     # -- Euclidean distance

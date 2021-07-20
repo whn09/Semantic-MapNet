@@ -40,6 +40,8 @@ RUN cd habitat-lab && pip install -e .
 
 # Install other dependencies
 
+# RUN pip config set global.index-url https://opentuna.cn/pypi/web/simple/
+
 RUN pip install tensorboardX
 
 RUN pip install --ignore-installed PyYAML

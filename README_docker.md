@@ -61,3 +61,5 @@
 * `python ObjectNav/build_freespace_maps.py`
 
 * `python ObjectNav/run_astar_planning.py`
+
+* `python ObjectNav/visualize_astar_planning.py`

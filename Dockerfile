@@ -36,11 +36,11 @@ RUN conda install habitat-sim headless -c conda-forge -c aihabitat -y
 
 RUN git clone --branch stable https://github.com/facebookresearch/habitat-lab.git
 
+# RUN pip config set global.index-url https://opentuna.cn/pypi/web/simple/
+
 RUN cd habitat-lab && pip install -e .
 
 # Install other dependencies
-
-# RUN pip config set global.index-url https://opentuna.cn/pypi/web/simple/
 
 RUN pip install tensorboardX
 
